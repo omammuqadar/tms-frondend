@@ -51,3 +51,56 @@ code {
     transform: rotate(360deg);
   }
 }
+
+
+
+/* masonary */ 
+.masonry-grid {
+  column-gap: 5px;
+  width: 100%;
+  padding: 5px;
+}
+
+.masonry-grid-count-1 {
+  column-count: 1;
+}
+
+.masonry-grid-count-2 {
+  column-count: 2;
+}
+
+.masonry-grid-count-3 {
+  column-count: 3;
+}
+
+.masonry-grid-count-4 {
+  column-count: 4;
+}
+
+.masonry-grid__item {
+  /* Prevent a column from breaking into multiple columns */
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  margin: 0px 5px;
+  padding: 5px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background-color: white;
+  /* box-shadow: 0px 0px 5px 0px #dcdcdc7d; */
+  border: none;
+  position:relative;
+}
+
+@media (max-width:992px) {
+  .masonry-grid {
+    column-count: 1;   
+    padding: 10px;
+  }
+  .masonry-grid__item {
+    margin: 0px 5px;
+    padding: 2px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+  }
+}
+

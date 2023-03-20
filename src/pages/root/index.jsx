@@ -1,9 +1,11 @@
+import { Container } from "@mui/material";
+import { Hero } from "../../components/hero/hero";
 
 function Home() {
   return (
-    <div className="App">
-     <h1>Home</h1>
-    </div>
+    <Container>
+      <Hero />
+    </Container>
   );
 }
 

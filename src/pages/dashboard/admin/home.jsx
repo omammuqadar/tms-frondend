@@ -2,8 +2,38 @@ import { Box, Divider } from "@mui/material";
 import DashboardHead from "../../../components/dashboardhead/dashboardhead";
 import { CardMasonry } from "../../../components/card/card";
 import { TableRow } from "../../../components/table/table";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { getCookie, setCookie } from '../../../hooks/useCookie';
+import { decrypt } from '../../../hooks/useSecurity';
+import CryptoJS from 'crypto-js';
 
 function AdminHome(){
+
+  const [data, setData] = useState('');
+
+  // Get
+  useEffect(() => {
+
+    const xhr = new XMLHttpRequest();
+    const url = `http://localhost:5000/backend/user/`;
+  
+    xhr.open('GET', url, true);
+  
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          setData(response);
+        } else {
+        }
+      }
+    };
+  
+    xhr.send();
+
+  }, []);
+
 
   const programsData = [
     {

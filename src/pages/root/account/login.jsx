@@ -8,13 +8,64 @@ import {
   Container,
   Button,
 } from '@mantine/core';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getCookie, setCookie } from '../../../hooks/useCookie';
+import { decrypt } from '../../../hooks/useSecurity';
+import CryptoJS from 'crypto-js';
 
 export function Login() {
+  
+  const [result, setResult] = useState(false);
+  const [data, setData] = useState('');
 
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const [values, setValues] = useState({
+    email:'',
+    password:'',
+  });
+
+  // Get
   const handleSubmit = () => {
 
-  }
+    const loginuser = data.filter(e => e.email == values.email);
+    
+    if(loginuser) {
+      setTimeout(() => {
+        setResult(true)
+        setCookie('id', CryptoJS.AES.encrypt(loginuser[0].id, '123').toString(),30)
+        setCookie('role', CryptoJS.AES.encrypt(loginuser[0].role, '123').toString(),30)
+      }, 2000);
+    }else {
+      setResult(false)
+    }
+
+  };
+
+  // Get
+  useEffect(() => {
+
+    const xhr = new XMLHttpRequest();
+    const url = `http://localhost:5000/backend/user/`;
+  
+    xhr.open('GET', url, true);
+  
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          setData(response);
+        } else {
+        }
+      }
+    };
+  
+    xhr.send();
+
+  }, [result]);
 
   return (
     <Container size={420} my={40}>
@@ -32,14 +83,46 @@ export function Login() {
           </Anchor>
         </Link>
       </Text>
-
-      <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <TextInput label="Email"  placeholder="you@mantine.dev" required />
-        <PasswordInput label="Password" placeholder="Your password" required mt="md" />
-        <Button fullWidth mt="xl">
-          Sign In
-        </Button>
-      </Paper>
+      {result === false && 
+        <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+          <TextInput label="Email"  placeholder="you@mantine.dev" onChange={handleChange('email')} required />
+          <PasswordInput label="Password" placeholder="Your password" onChange={handleChange('password')} required mt="md" />
+          <Button fullWidth mt="xl" onClick={handleSubmit}>
+            Sign In
+          </Button>
+        </Paper>
+      }
+      {result === true &&
+        <>
+          {decrypt(getCookie("role")) == "Admin" && 
+            <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+              <Link to="/admin/home">
+                <Button fullWidth mt="xl" onClick={handleSubmit}>
+                  Go To Admin Dashboard
+                </Button>
+              </Link>
+            </Paper>
+          }
+          {decrypt(getCookie("role")) == "Trainer" && 
+            <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+              <Link to="/trainer/home">
+                <Button fullWidth mt="xl" onClick={handleSubmit}>
+                  Go To Trainer Dashboard
+                </Button>
+              </Link>
+            </Paper>
+          }
+          {decrypt(getCookie("role")) == "Student" && 
+            <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+              <Link to="/sd/home">
+                <Button fullWidth mt="xl" onClick={handleSubmit}>
+                  Go To Student Dashboard
+                </Button>
+              </Link>
+            </Paper>
+          }
+        </>
+      }
     </Container>
   );
 }

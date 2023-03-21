@@ -16,7 +16,7 @@ function Admin(){
           <Col xl={1} xxl={1} className="sidenav" id="sidenav">
             <AdminSidenav />
           </Col>
-          <Col sm={12} md={12} lg={12} xl={10} xxl={10} className="mg-cont" >
+          <Col sm={12} md={12} lg={12} xl={10} xxl={10} className="mg-cont" data-aos="fade-up" data-aos-delay="200">
             <Outlet />
           </Col>
         </Row>

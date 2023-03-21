@@ -53,7 +53,7 @@ export function Session({ image, title, description }) {
 
   return (
     <div className='masonry-grid__item'>
-      <Card withBorder radius="md" p="md" className={classes.card}>
+      <Card withBorder radius="md" p="md" className={classes.card} data-aos="fade-up" data-aos-delay="200">
         <Card.Section>
           <Image src={image} alt={title} height={180} />
         </Card.Section>

@@ -78,15 +78,15 @@ export function Hero() {
   return (
     <div className={classes.wrapper}>
       <Container size={700} className={classes.inner}>
-        <h1 className={classes.title}>
+        <h1 className={classes.title} data-aos="fade-up" data-aos-delay="100">
           {text[0].mainText}
         </h1>
 
-        <Text className={classes.description} color="dimmed">
+        <Text className={classes.description} color="dimmed" data-aos="fade-up" data-aos-delay="200">
           {text[0].description}
         </Text>
 
-        <Group className={classes.controls}>
+        <Group className={classes.controls} data-aos="fade-up" data-aos-delay="400">
           {/* <Link to="/account/register">
             <Button
               size="xl"

@@ -27,7 +27,7 @@ import './dashboardhead.css'
       <div className='mg-head-r'>
         <Tooltip title="Add - space">
           <IconButton size="medium" onClick={func} >
-            <GrFormAdd />
+            <GrFormAdd  data-aos="fade-up" data-aos-delay="200"/>
           </IconButton>
         </Tooltip>
       </div>

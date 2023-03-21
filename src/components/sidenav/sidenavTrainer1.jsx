@@ -114,7 +114,7 @@ export function TrainerSidenav() {
   ));
 
   return (
-    <Navbar height={700} width={{ sm: 300 }} p="md">
+    <Navbar height={700} width={{ sm: 300 }} p="md" data-aos="fade-right" data-aos-delay="100">
       <Navbar.Section grow>
         <Group className={classes.header} position="apart">
           {/* <MantineLogo size={28} /> */}

@@ -31,7 +31,7 @@ function AdminSessions(){
   return (
     <>
       <Divider sx={{m:5}}/>
-      <DashboardHead title="Sessions" />
+      <DashboardHead title="Sessions"  />
 
       <Box sx={{m:3}} ></Box>
       

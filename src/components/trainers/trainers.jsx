@@ -10,6 +10,7 @@ export function TrainerProfile({ avatar, name, email, job }) {
         sx={(theme) => ({
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
         })}
+        data-aos="fade-up" data-aos-delay="200"
       >
         <Avatar src={avatar} size={120} radius={120} mx="auto" />
         <Text ta="center" fz="lg" weight={500} mt="md">

@@ -72,7 +72,7 @@ export function Register() {
   }, []);
 
   return (
-    <Container size={420} my={40}>
+    <Container size={420} my={40} data-aos="fade-up" data-aos-delay="200">
       <Title
         align="center"
         sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 900 })}

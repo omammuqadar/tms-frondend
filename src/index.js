@@ -38,9 +38,9 @@ root.render(
   <UserProvider>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} >
+        <Route path="/" element={<App />} > 
           {/* Root */}
-          <Route path="" element={<Home />} /> 
+          <Route path="" element={<Home />} />  
           {/* Add */}
           
           <Route path="/account/register" element={<Register />} /> 

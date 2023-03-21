@@ -72,7 +72,7 @@ export function TrainerSidenav() {
   ));
 
   return (
-    <Navbar height={750} width={{ base: 80 }} p="md">
+    <Navbar height={750} width={{ base: 80 }} p="md" data-aos="fade-right" data-aos-delay="100">
       <Center>
         <h4 style={{fontWeight:'900'}}>TMS</h4>
       </Center>

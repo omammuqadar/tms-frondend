@@ -16,7 +16,7 @@ export function SdProfile({ avatar, name, title, phone, email }) {
   const { classes } = useStyles();
   return (
     <Box sx={{p:3}}>
-      <Group noWrap>
+      <Group noWrap data-aos="fade-up" data-aos-delay="200">
         <Avatar src={avatar} size={94} radius="md" />
         <div>
           <Text fz="xs" tt="uppercase" fw={700} c="dimmed">

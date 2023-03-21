@@ -87,7 +87,7 @@ export function Hero() {
         </Text>
 
         <Group className={classes.controls}>
-          <Link to="/account/register">
+          {/* <Link to="/account/register">
             <Button
               size="xl"
               className={classes.control}
@@ -106,6 +106,36 @@ export function Hero() {
           >
             Login
           </Button>
+          </Link> */}
+          <Link to="/admin/home">
+            <Button
+              size="xl"
+              className={classes.control}
+              variant="gradient"
+              gradient={{ from: 'blue', to: 'cyan' }}
+            >
+              Admin
+            </Button>
+          </Link>
+          <Link to="/sd/home">
+            <Button
+              size="xl"
+              className={classes.control}
+              variant="gradient"
+              gradient={{ from: 'blue', to: 'cyan' }}
+            >
+              Student
+            </Button>
+          </Link>
+          <Link to="/trainer/home">
+            <Button
+              size="xl"
+              className={classes.control}
+              variant="gradient"
+              gradient={{ from: 'blue', to: 'cyan' }}
+            >
+              Trainer
+            </Button>
           </Link>
           {/* <Button
             component="a"

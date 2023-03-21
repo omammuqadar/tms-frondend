@@ -4,9 +4,9 @@ import { Outlet } from 'react-router-dom';
 // import Header from './header';
 // import Sidenav from '../../component/sidenav/sidenav';
 import {MdAdd, MdClose} from 'react-icons/md';
-import { AdminSidenav } from '../../../components/sidenav/sidenavAdmin';
+import { TrainerSidenav } from '../../../components/sidenav/sidenavTrainer';
 
-function Admin(){
+function Trainer(){
 
   return (
     <>
@@ -14,7 +14,7 @@ function Admin(){
       <Container className="mg-container" fluid>
         <Row >
           <Col xl={1} xxl={1} className="sidenav" id="sidenav">
-            <AdminSidenav />
+            <TrainerSidenav />
           </Col>
           <Col sm={12} md={12} lg={12} xl={10} xxl={10} className="mg-cont" >
             <Outlet />
@@ -26,4 +26,4 @@ function Admin(){
   );
 };
 
-export default Admin;
+export default Trainer;

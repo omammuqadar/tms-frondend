@@ -1,0 +1,57 @@
+/* card */
+
+.m-card-bor {
+  padding: 10px;
+}
+.m-card-row {
+  display: flex;
+  padding: 10px;
+}
+.m-card {
+  flex: 1;
+  margin: 10px 5px;
+  padding: 0px 0px;
+  border-radius: 60px;   
+  background-color: white;
+  position: relative;
+}
+.m-card-header {
+  padding: 20px 20px;
+  text-align: left;
+}
+.m-card-header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+.m-card-cont {
+  margin: 5px 0px;
+  padding: 5px;
+  text-align: center;
+}
+.m-card-footer {
+  text-align: right;
+  padding: 2px;
+  margin: 5px;
+}
+
+/* m card graph */
+
+.m-card-graph {
+  width: 300px;
+  height: auto;
+  display: inline-block;
+}
+
+@media (max-width:992px) {   
+  .m-card-bor {
+    padding: 5px;
+    text-align: center;
+  }
+  .m-card {
+    width: 98%;
+    display: inline-block;
+  }
+  .m-card-header h1 {
+    font-size: 17px;
+  }
+}

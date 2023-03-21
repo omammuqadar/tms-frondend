@@ -104,3 +104,68 @@ code {
   }
 }
 
+/* card table */
+.m-tb-wide {
+}
+.m-tb-wide-cont {
+  padding: 5px;
+  margin: 5px;
+}
+.m-card-tb {
+  padding: 5px;
+  margin: 5px;
+}
+.m-card-tb-row {
+  border-bottom: 1px solid gainsboro;
+  padding: 10px;
+  display: flex;
+  position: relative;
+  text-align: left;
+  align-items: center;
+}
+.m-card-tb-row:hover {
+  border-bottom: 1px solid gray;
+}
+.m-card-tb-col {
+  flex: 1;
+  padding: 5px;
+}
+.m-card-tb-hover {
+  display: none;
+}
+.m-card-tb-row:hover .m-card-tb-hover {
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 0px;
+}
+@media (max-width:992px) {
+  .m-tb-wide {
+    overflow-x: auto;
+  }
+  .m-tb-sm-cont {
+    padding: 2px;
+    margin: 2px;
+    width: 300px;
+  }
+  .m-tb-wide-cont {
+    padding: 2px;
+    margin: 2px;
+    width: 500px;
+  }
+  .m-tb-wider-cont {
+    padding: 2px;
+    margin: 2px;
+    width: 600px;
+  }
+  .m-card-tb {
+    padding: 2px;
+    margin: 2px;
+  }
+  .m-card-tb-col {
+    flex: 1;
+    padding: 3px;
+    font-size: 14px;
+  }
+}
+/* __________ */

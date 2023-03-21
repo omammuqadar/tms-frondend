@@ -1,0 +1,16 @@
+.m-card-tb-row {
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+
+.m-card-tb-edit {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.m-card-tb-row:hover .m-card-tb-edit {
+  display: block;
+}

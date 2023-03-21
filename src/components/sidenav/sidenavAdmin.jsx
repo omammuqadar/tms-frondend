@@ -52,7 +52,7 @@ const mockdata = [
 ];
 
 export function AdminSidenav() {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(0);
 
   const links = mockdata.map((link, index) => (
     <>
@@ -72,6 +72,7 @@ export function AdminSidenav() {
       <Center>
         <h4 style={{fontWeight:'900'}}>TMS</h4>
       </Center>
+      <p>Admin</p>
       <Navbar.Section grow mt={80}>
         <Stack justify="center" spacing={0}>
           {links}
@@ -79,8 +80,12 @@ export function AdminSidenav() {
       </Navbar.Section>
       <Navbar.Section>
         <Stack justify="center" spacing={0}>
-          <NavbarLink icon={CgArrowsExchange} label="Change account" />
-          <NavbarLink icon={CiLogout} label="Logout" />
+          <Link to={'/account/register'}>
+            <NavbarLink icon={CgArrowsExchange} label="Change account" />
+          </Link>
+          <Link to={'/account/login'}>
+            <NavbarLink icon={CiLogout} label="Logout" />
+          </Link>
         </Stack>
       </Navbar.Section>
     </Navbar>

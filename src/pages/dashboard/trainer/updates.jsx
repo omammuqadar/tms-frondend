@@ -2,7 +2,7 @@ import { Box, Divider } from "@mui/material";
 import DashboardHead from "../../../components/dashboardhead/dashboardhead";
 import { SdProfile } from "../../../components/sd/sd";
 
-function AdminSds(){
+function TrainerUpdates(){
 
   const sdsdata = [
     {
@@ -59,7 +59,7 @@ function AdminSds(){
   return (
     <>
       <Divider sx={{m:5}}/>
-      <DashboardHead title="Students" />
+      <DashboardHead title="Updates" />
 
       <Box sx={{m:6}} ></Box>
       
@@ -79,4 +79,4 @@ function AdminSds(){
   )
 }
 
-export default AdminSds;
+export default TrainerUpdates;

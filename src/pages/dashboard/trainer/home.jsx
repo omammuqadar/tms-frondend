@@ -3,7 +3,7 @@ import DashboardHead from "../../../components/dashboardhead/dashboardhead";
 import { CardMasonry } from "../../../components/card/card";
 import { TableRow } from "../../../components/table/table";
 
-function AdminHome(){
+function TrainerHome(){
 
   const programsData = [
     {
@@ -86,4 +86,4 @@ function AdminHome(){
   );
 };
 
-export default AdminHome;
+export default TrainerHome;

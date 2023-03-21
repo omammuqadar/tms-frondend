@@ -96,17 +96,17 @@ export function Hero() {
             >
               Register
             </Button>
-          </Link>
+          </Link>*/}
           <Link to="/account/login">
-          <Button
-            size="xl"
-            className={classes.control}
-            variant="gradient"
-            gradient={{ from: 'blue', to: 'cyan' }}
-          >
-            Login
-          </Button>
-          </Link> */}
+            <Button
+              size="xl"
+              className={classes.control}
+              variant="gradient"
+              gradient={{ from: 'blue', to: 'cyan' }}
+            >
+              Login
+            </Button>
+          </Link> 
           <Link to="/admin/home">
             <Button
               size="xl"

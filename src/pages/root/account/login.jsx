@@ -7,6 +7,7 @@ import {
   Text,
   Container,
   Button,
+  Group,
 } from '@mantine/core';
 import { Link } from 'react-router-dom';
 
@@ -34,11 +35,15 @@ export function Login() {
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <TextInput label="Email"  placeholder="you@mantine.dev" required />
+        <TextInput label="Email"  placeholder="you@trianleariningmanagement.dev" required />
         <PasswordInput label="Password" placeholder="Your password" required mt="md" />
         <Button fullWidth mt="xl">
           Sign In
         </Button>
+        <Group grow mb="md" mt="md">
+        {/* <GoogleButton radius="xl">Google</GoogleButton>
+        <TwitterButton radius="xl">Twitter</TwitterButton> */}
+      </Group>
       </Paper>
     </Container>
   );

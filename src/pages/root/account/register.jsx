@@ -104,7 +104,7 @@ export function Register() {
           </RadioGroup>
         </FormControl>
         <TextInput label="Name" value={values.name} onChange={handleChange('name')} placeholder="farhan" required mt="md" />
-        <TextInput label="Email" value={values.email} onChange={handleChange('email')}  placeholder="you@mantine.dev" required mt="md" />
+        <TextInput label="Email" value={values.email} onChange={handleChange('email')}  placeholder="you@trianleariningmanagement.dev" required mt="md" />
         <PasswordInput label="Password" value={values.password} onChange={handleChange('password')}  placeholder="Your password" required mt="md" />
         <Button fullWidth mt="xl" onClick={handleSubmit}>
           Create Account

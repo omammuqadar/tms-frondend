@@ -7,6 +7,7 @@ import {
   createStyles,
   rem,
 } from '@mantine/core';
+import { Chip } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
@@ -59,18 +60,9 @@ export function Program({data}) {
               </Text>
             </Card.Section>
 
-            <Card.Section className={classes.section}>
-              <Text mt="md" className={classes.label} c="dimmed">
-                Perfect for you, if you enjoy
-              </Text>
-              <Group spacing={7} mt={5}>
-                
-              </Group>
-            </Card.Section>
-
             <Group mt="xs">
               <Link >
-                <Button radius="md" style={{ flex: 1 }}>
+                <Button radius="md" onClick={key.func} style={{ flex: 1 }}>
                   Detail
                 </Button>
               </Link>

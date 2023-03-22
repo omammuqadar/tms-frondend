@@ -7,6 +7,11 @@ import {CiLogout} from 'react-icons/ci'
 
 import {HiSpeakerphone} from 'react-icons/hi'
 import { Link } from 'react-router-dom';
+import { Jquery } from 'react-jquery-plugin';
+import './sidenav.css';
+import { Fab, IconButton } from '@mui/material';
+import {MdOutlineArrowForward,MdOutlineArrowBack} from 'react-icons/md'
+import {MdAdd,MdClose} from 'react-icons/md';
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -53,6 +58,33 @@ const mockdata = [
 
 export function AdminSidenav() {
   const [active, setActive] = useState(0);
+  const [status,setStatus] = useState(false);
+
+  const changeStatus = (v) => {
+    if(v === false) {
+      setStatus(true)
+    }else if (v === true) {
+      setStatus(false)
+    }
+  }
+
+  Jquery(function() {
+
+    Jquery("#openSidenav1").on("click",function () {
+      Jquery(this).fadeOut("fast");
+      Jquery(this).attr('style','display: none !important');
+      Jquery(".main-sidenav").attr('style','display: block !important');
+      Jquery("#openSidenav2").fadeIn("fast");
+    });
+
+    Jquery("#openSidenav2").on("click",function () {
+      Jquery(this).fadeOut("fast");
+      Jquery(this).attr('style','display: none !important');
+      Jquery(".main-sidenav").attr('style','display: none !important');
+      Jquery("#openSidenav1").fadeIn("fast");
+    });
+
+  });
 
   const links = mockdata.map((link, index) => (
     <>
@@ -68,7 +100,8 @@ export function AdminSidenav() {
   ));
 
   return (
-    <Navbar height={750} width={{ base: 80 }} p="md" data-aos="fade-right" data-aos-delay="100">
+    <>
+    <Navbar height={750} className="main-sidenav" width={{ base: 80 }} p="md" data-aos="fade-right" data-aos-delay="100">
       <Center>
         <h4 style={{fontWeight:'900'}}>TMS</h4>
       </Center>
@@ -89,6 +122,31 @@ export function AdminSidenav() {
         </Stack>
       </Navbar.Section>
     </Navbar>
+    
+    {/* <div className="sidenav-btn">
+      <Tooltip  title={status === true ? "Arrow Right" : "Arrow Left"}>
+        <IconButton onClick={() => changeStatus(status)} className="sidenav-btn-icon" sx={{mt:1}}>
+          {status === true &&
+            <>
+            <MdOutlineArrowForward />
+            </>
+          }
+          {status === false &&
+            <MdOutlineArrowBack />
+          }
+        </IconButton>
+      </Tooltip>
+    </div> */}
+    
+    <Fab  className="openSidebtn secondary-color" style={{display:"none"}} id="openSidenav2" size="small" aria-label="openSidebtn">
+      <MdClose />
+    </Fab>
+
+    <Fab  className="openSidebtn secondary-color" id="openSidenav1" size="small" aria-label="openSidebtn">
+      <MdAdd />
+    </Fab>
+
+    </>
   );
 }
 

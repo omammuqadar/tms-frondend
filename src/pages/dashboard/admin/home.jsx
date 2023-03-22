@@ -51,31 +51,56 @@ function AdminHome(){
     xhr_prog.send();
   }, [id]);
 
+  const programData = [
+    {
+      name:"Program 1",
+      value:"Session1, Session 2",
+    },
+    {
+      name:"Program 2",
+      value:"Session1, Session 2",
+    },
+    {
+      name:"Program 3",
+      value:"Session1, Session 2",
+    },
+  ]  
   const sessionsData = [
     {
-      name:"Name",
-      value:"Program",
+      name:"Session 1",
+      value:"This is Description",
     },
     {
-      name:"Name",
-      value:"Program",
+      name:"Session 2",
+      value:"This is Description",
     },
     {
-      name:"Name",
-      value:"Program",
+      name:"Session 3",
+      value:"This is Description",
     },
   ]  
   const trainersData = [
     {
-      name:"Name",
-      value:"Program",
+      name:"Trainer 1",
+      value:"Session 1, Session 2",
     },
     {
-      name:"Name",
-      value:"Program",
+      name:"Trainer 2",
+      value:"Session 1, Session 2",
     },
   ]
   
+  const sdData = [
+    {
+      name:"Student 1",
+      value:"Assignment 1, Assignment 2",
+    },
+    {
+      name:"Student 2",
+      value:"Assignment 1, Assignment 2",
+    },
+  ]
+
   const adminProfile = data.map(key => {
     return (
       <>
@@ -86,7 +111,6 @@ function AdminHome(){
 
   return (
     <>
-      <Divider sx={{m:5}}/>
       <DashboardHead title="Home" />
 
       <Box sx={{m:3}} ></Box>
@@ -94,7 +118,8 @@ function AdminHome(){
       <div className="masonry-grid masonry-grid-count-2">
         <CardMasonry head="Programs" >
           <div className="m-card-tb">
-            <ProgramSm data={programs}/>
+            {/* <ProgramSm data={programs}/> */}
+            <TableRow rows={programData}/>
           </div> 
         </CardMasonry>
         <CardMasonry head="Sessions" >
@@ -109,7 +134,7 @@ function AdminHome(){
         </CardMasonry>
         <CardMasonry head="Students" >
           <div className="m-card-tb">
-            <TableRow rows={sessionsData}/>
+            <TableRow rows={sdData}/>
           </div> 
         </CardMasonry>
       </div>

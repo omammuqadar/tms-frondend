@@ -83,9 +83,6 @@ export function Session({ image, title, description }) {
           <Button radius="md" style={{ flex: 1 }}>
             Sessions
           </Button>
-          {/* <ActionIcon variant="default" radius="md" size={36}>
-            <IconHeart size="1.1rem" className={classes.like} stroke={1.5} />
-          </ActionIcon> */}
         </Group>
       </Card>
     </div>

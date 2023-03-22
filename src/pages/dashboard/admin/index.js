@@ -1,4 +1,4 @@
-import { Fab   } from '@mui/material';
+import { Divider, Fab   } from '@mui/material';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 // import Header from './header';
@@ -17,6 +17,9 @@ function Admin(){
             <AdminSidenav />
           </Col>
           <Col sm={12} md={12} lg={12} xl={10} xxl={10} className="mg-cont" data-aos="fade-up" data-aos-delay="200">
+            <Divider sx={{m:2}}/>
+            <h3 className='manage-head' style={{textAlign:"center"}}>Admin Name</h3>
+            <Divider sx={{m:2}}/>
             <Outlet />
           </Col>
         </Row>

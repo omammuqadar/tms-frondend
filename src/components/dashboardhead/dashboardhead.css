@@ -2,3 +2,30 @@
   color: #1976d2 !important;
   font-weight: 800;
 }
+
+/* manage head */
+.mg-head {
+  display: flex;
+  border-bottom: 1px solid gainsboro;    
+  margin-bottom: 10px;
+  align-items: center;
+  padding: 10px 30px;
+}
+.mg-head-l {
+  flex: 1;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.mg-modal-in {
+  margin: 5px 0px !important;
+}
+
+@media (max-width:992px) {
+  .mg-head {
+    padding: 5px 20px;
+  }
+  .mg-head-l h3 {
+    font-size: 20px;
+  }
+}

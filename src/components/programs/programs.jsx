@@ -1,15 +1,13 @@
-// import { IconHeart } from '@tabler/icons-react';
 import {
   Card,
-  Image,
   Text,
   Group,
   Badge,
   Button,
-  ActionIcon,
   createStyles,
   rem,
 } from '@mantine/core';
+import { Chip } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
@@ -37,59 +35,78 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-
-export function Program({ image, title, description, sessionLink }) {
+export function Program({data}) {
   const { classes, theme } = useStyles();
 
-  // const features = badges.map((badge) => (
-  //   <Badge
-  //     color={theme.colorScheme === 'dark' ? 'dark' : 'gray'}
-  //     key={badge.label}
-  //     leftSection={badge.emoji}
-  //   >
-  //     {badge.label}
-  //   </Badge>
-  // ));
+  const programHTML = data.map(key => {
+    return (
+      <>
+        <div className='masonry-grid__item'>
+          <Card withBorder radius="md" p="md" className={classes.card} data-aos="fade-up" data-aos-delay="200">
+            <Card.Section>
+              {/* <Image src={image} alt={name} height={180} /> */}
+            </Card.Section>
+
+            <Card.Section className={classes.section} mt="md">
+              <Group position="apart">
+                <Text fz="lg" fw={500}>
+                  {key.name}
+                </Text>
+                <Badge size="sm">{key.start_date}</Badge>
+                <Badge size="sm">{key.end_date}</Badge>
+              </Group>
+              <Text fz="sm" mt="xs">
+                {key.description}
+              </Text>
+            </Card.Section>
+
+            <Group mt="xs">
+              <Link >
+                <Button radius="md" onClick={key.func} style={{ flex: 1 }}>
+                  Detail
+                </Button>
+              </Link>
+            </Group>
+          </Card>
+        </div>
+      </>
+    )
+  })
 
   return (
-    <div className='masonry-grid__item'>
-      <Card withBorder radius="md" p="md" className={classes.card} data-aos="fade-up" data-aos-delay="200">
-        <Card.Section>
-          <Image src={image} alt={title} height={180} />
-        </Card.Section>
+   <>
+    {programHTML}
+   </>
+  );
+}
 
-        <Card.Section className={classes.section} mt="md">
-          <Group position="apart">
-            <Text fz="lg" fw={500}>
-              {title}
-            </Text>
-            {/* <Badge size="sm">{country}</Badge> */}
-          </Group>
-          <Text fz="sm" mt="xs">
-            {description}
-          </Text>
-        </Card.Section>
+export function ProgramSm({data}) {
+  const { classes, theme } = useStyles();
 
-        <Card.Section className={classes.section}>
-          <Text mt="md" className={classes.label} c="dimmed">
-            Perfect for you, if you enjoy
-          </Text>
-          <Group spacing={7} mt={5}>
-            
-          </Group>
-        </Card.Section>
+  const programHTML = data.map(key => {
+    return (
+      <>
+        <div className='masonry-grid__item'>
+          <Card withBorder radius="md" p="md" className={classes.card} data-aos="fade-up" data-aos-delay="200">
 
-        <Group mt="xs">
-          <Link to={sessionLink}>
-            <Button radius="md" style={{ flex: 1 }}>
-              Sessions
-            </Button>
-          </Link>
-          {/* <ActionIcon variant="default" radius="md" size={36}>
-            <IconHeart size="1.1rem" className={classes.like} stroke={1.5} />
-          </ActionIcon> */}
-        </Group>
-      </Card>
-    </div>
+            <Card.Section className={classes.section}>
+              <Text mt="md" className={classes.label} style={{textAlign:'left'}} c="dimmed">
+                {key.name}
+              </Text>
+              <Text fz="sm" mt="xs"  style={{textAlign:'left'}}>
+                {key.description}
+              </Text>
+            </Card.Section>
+
+          </Card>
+        </div>
+      </>
+    )
+  })
+
+  return (
+   <>
+    {programHTML}
+   </>
   );
 }

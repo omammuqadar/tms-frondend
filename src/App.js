@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // internal
 import './style/index.css';
+import './style/style.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 

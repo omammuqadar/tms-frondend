@@ -9,13 +9,64 @@ import {
   Button,
   Group,
 } from '@mantine/core';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getCookie, setCookie } from '../../../hooks/useCookie';
+import { decrypt } from '../../../hooks/useSecurity';
+import CryptoJS from 'crypto-js';
 
 export function Login() {
+  
+  const [result, setResult] = useState(false);
+  const [data, setData] = useState('');
 
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const [values, setValues] = useState({
+    email:'',
+    password:'',
+  });
+
+  // Get
   const handleSubmit = () => {
 
-  }
+    const loginuser = data.filter(e => e.email == values.email);
+    
+    if(loginuser) {
+      setTimeout(() => {
+        setResult(true)
+        setCookie('id', CryptoJS.AES.encrypt(loginuser[0].id, '123').toString(),30)
+        setCookie('role', CryptoJS.AES.encrypt(loginuser[0].role, '123').toString(),30)
+      }, 2000);
+    }else {
+      setResult(false)
+    }
+
+  };
+
+  // Get
+  useEffect(() => {
+
+    const xhr = new XMLHttpRequest();
+    const url = `http://localhost:5000/backend/user/`;
+  
+    xhr.open('GET', url, true);
+  
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          setData(response);
+        } else {
+        }
+      }
+    };
+  
+    xhr.send();
+
+  }, [result]);
 
   return (
     <Container size={420} my={40} data-aos="fade-up" data-aos-delay="200">
@@ -35,15 +86,11 @@ export function Login() {
       </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <TextInput label="Email"  placeholder="you@trianleariningmanagement.dev" required />
+        <TextInput label="Email"  placeholder="you@mantine.dev" required />
         <PasswordInput label="Password" placeholder="Your password" required mt="md" />
         <Button fullWidth mt="xl">
           Sign In
         </Button>
-        <Group grow mb="md" mt="md">
-        {/* <GoogleButton radius="xl">Google</GoogleButton>
-        <TwitterButton radius="xl">Twitter</TwitterButton> */}
-      </Group>
       </Paper>
     </Container>
   );

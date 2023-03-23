@@ -1,6 +1,6 @@
 import { Avatar, Text, Button, Paper } from '@mantine/core';
 
-export function TrainerProfile({ avatar, name, email, job }) {
+export function TrainerProfile({ avatar, name, email, job, func }) {
   return (
     <div className='masonry-grid__item'>
       <Paper
@@ -19,9 +19,8 @@ export function TrainerProfile({ avatar, name, email, job }) {
         <Text ta="center" c="dimmed" fz="sm">
           {email} • {job}
         </Text>
-
-        <Button variant="default" fullWidth mt="md">
-          Send message
+        <Button variant="default" fullWidth mt="md" onClick={func}>
+          Detail
         </Button>
       </Paper>
     </div>
